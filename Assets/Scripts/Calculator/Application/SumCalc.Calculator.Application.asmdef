@@ -1,0 +1,16 @@
+{
+  "name": "SumCalc.Calculator.Application",
+  "rootNamespace": "SumCalc.Calculator.Application",
+  "references": [
+    "SumCalc.Calculator.Core"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true
+}

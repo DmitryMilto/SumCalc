@@ -1,0 +1,17 @@
+{
+  "name": "SumCalc.Calculator.Presentation",
+  "rootNamespace": "SumCalc.Calculator.Presentation",
+  "references": [
+    "SumCalc.Calculator.Application",
+    "SumCalc.Dialogs"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true
+}

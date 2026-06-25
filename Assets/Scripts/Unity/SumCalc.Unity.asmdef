@@ -1,0 +1,21 @@
+{
+  "name": "SumCalc.Unity",
+  "rootNamespace": "SumCalc.Unity",
+  "references": [
+    "SumCalc.Calculator.Core",
+    "SumCalc.Calculator.Application",
+    "SumCalc.Calculator.Presentation",
+    "SumCalc.Dialogs",
+    "UnityEngine.UI",
+    "Unity.InputSystem"
+  ],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": false
+}

@@ -1,0 +1,24 @@
+{
+  "name": "SumCalc.Tests.EditMode",
+  "rootNamespace": "SumCalc.Tests.EditMode",
+  "references": [
+    "SumCalc.Calculator.Core",
+    "SumCalc.Calculator.Application",
+    "SumCalc.Calculator.Presentation",
+    "SumCalc.Dialogs"
+  ],
+  "includePlatforms": [
+    "Editor"
+  ],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": false,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true,
+  "optionalUnityReferences": [
+    "TestAssemblies"
+  ]
+}
