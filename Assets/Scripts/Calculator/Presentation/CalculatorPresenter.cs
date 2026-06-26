@@ -45,7 +45,7 @@ namespace SumCalc.Calculator.Presentation
             _errorDialogPresenter.Closed += OnDialogClosed;
 
             _view.SetExpression(_currentExpression);
-            _view.SetResult(string.Empty);
+            _view.SetResult(_history.Count > 0 ? _history[0] : string.Empty);
             _view.SetHistory(_history);
         }
 
@@ -65,7 +65,9 @@ namespace SumCalc.Calculator.Presentation
         private void OnCalculateRequested()
         {
             var result = _calculateExpressionUseCase.Execute(_currentExpression);
-            _view.SetResult(result.Output);
+            _history.Insert(0, result.HistoryEntry);
+            _view.SetResult(result.HistoryEntry);
+            _view.SetHistory(_history);
 
             if (!result.IsSuccess)
             {
@@ -74,8 +76,6 @@ namespace SumCalc.Calculator.Presentation
                 return;
             }
 
-            _history.Insert(0, result.HistoryEntry);
-            _view.SetHistory(_history);
             SaveState();
         }
 

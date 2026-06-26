@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using SumCalc.Calculator.Presentation;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ namespace SumCalc.Unity.Views
         [SerializeField] private Button calculateButton;
         [SerializeField] private Text resultText;
         [SerializeField] private Text historyText;
+        [SerializeField] private ScrollRect historyScrollRect;
 
         public event Action<string> InputChanged;
 
@@ -43,9 +45,18 @@ namespace SumCalc.Unity.Views
                 return;
             }
 
-            historyText.text = history == null || history.Count == 0
-                ? "История пуста"
-                : string.Join(Environment.NewLine, history);
+            if (history == null || history.Count <= 1)
+            {
+                historyText.text = string.Empty;
+                return;
+            }
+
+            historyText.text = string.Join(Environment.NewLine, history.Skip(1));
+            if (historyScrollRect != null)
+            {
+                Canvas.ForceUpdateCanvases();
+                historyScrollRect.verticalNormalizedPosition = 1f;
+            }
         }
 
         private void OnDestroy()

@@ -13,13 +13,13 @@ namespace SumCalc.Calculator.Application
 
         public CalculationUseCaseResult Execute(string expression)
         {
+            var normalizedExpression = expression ?? string.Empty;
             var result = _calculator.Calculate(expression);
             if (!result.IsSuccess)
             {
-                return CalculationUseCaseResult.Error();
+                return CalculationUseCaseResult.Error($"{normalizedExpression}=ERROR");
             }
 
-            var normalizedExpression = expression ?? string.Empty;
             var output = result.Sum.ToString();
             var historyEntry = $"{normalizedExpression}={output}";
             return CalculationUseCaseResult.Success(output, historyEntry);

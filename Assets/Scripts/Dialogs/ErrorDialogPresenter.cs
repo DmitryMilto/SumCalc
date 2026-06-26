@@ -16,7 +16,7 @@ namespace SumCalc.Dialogs
 
         public void ShowValidationMessage()
         {
-            _view.Show("Проверьте введенную информацию.");
+            _view.Show("Please check the expression\nyou just entered");
         }
 
         public void Hide()

@@ -20,9 +20,9 @@ namespace SumCalc.Calculator.Application
             return new CalculationUseCaseResult(true, output, historyEntry);
         }
 
-        public static CalculationUseCaseResult Error()
+        public static CalculationUseCaseResult Error(string historyEntry)
         {
-            return new CalculationUseCaseResult(false, "Error", string.Empty);
+            return new CalculationUseCaseResult(false, "Error", historyEntry);
         }
     }
 }

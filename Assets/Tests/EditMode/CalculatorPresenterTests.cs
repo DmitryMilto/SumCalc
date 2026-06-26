@@ -31,6 +31,7 @@ namespace SumCalc.Tests.EditMode
 
             Assert.That(result.IsSuccess, Is.False);
             Assert.That(result.Output, Is.EqualTo("Error"));
+            Assert.That(result.HistoryEntry, Is.EqualTo("98.12+48.1=ERROR"));
         }
 
         [Test]
@@ -51,13 +52,15 @@ namespace SumCalc.Tests.EditMode
             view.RaiseInputChanged("45+-88");
             view.RaiseCalculateRequested();
 
-            Assert.That(view.Result, Is.EqualTo("Error"));
-            Assert.That(dialogView.LastMessage, Is.EqualTo("Проверьте введенную информацию."));
+            Assert.That(view.Result, Is.EqualTo("45+-88=ERROR"));
+            Assert.That(view.History, Is.EquivalentTo(new[] { "45+-88=ERROR" }));
+            Assert.That(dialogView.LastMessage, Is.EqualTo("Please check the expression\nyou just entered"));
 
             dialogView.RaiseClosed();
 
             Assert.That(view.Expression, Is.EqualTo("45+-88"));
             Assert.That(repository.State.CurrentExpression, Is.EqualTo("45+-88"));
+            Assert.That(repository.State.History, Is.EquivalentTo(new[] { "45+-88=ERROR" }));
         }
 
         [Test]
@@ -80,6 +83,7 @@ namespace SumCalc.Tests.EditMode
             presenter.Initialize();
 
             Assert.That(view.Expression, Is.EqualTo("34+47"));
+            Assert.That(view.Result, Is.EqualTo("11+22=33"));
             Assert.That(view.History, Is.EquivalentTo(new[] { "11+22=33", "6+7=13" }));
         }
 
